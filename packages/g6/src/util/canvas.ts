@@ -22,7 +22,7 @@ export const createCanvas = (
   height: number,
   pixelRatio?: number,
 ): Canvas => {
-  let renderer: IRenderer;
+  let renderer: any;
   switch (rendererType.toLowerCase()) {
     case 'svg':
       renderer = new SVGRenderer();
@@ -65,7 +65,7 @@ export const changeRenderer = (
   rendererType: RendererName,
   canvas: Canvas,
 ): Canvas => {
-  let renderer: IRenderer;
+  let renderer: any;
   switch (rendererType.toLowerCase()) {
     case 'svg':
       renderer = new SVGRenderer();

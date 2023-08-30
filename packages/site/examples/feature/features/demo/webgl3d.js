@@ -59,19 +59,17 @@ const graph = new ExtGraph({
         ...innerModel.data,
         type: 'sphere-node',
         keyShape: {
-          r: 12 + degrees[innerModel.id] / 2,
+          lod: -1,
+          r: 30,
         },
-        // labelShape:
-        //   degrees[innerModel.id] > 20
-        //     ? {
-        //         text: innerModel.data.label,
-        //         fontSize: 100,
-        //         lod: -1,
-        //         fill: 'rgba(255,255,255,0.85)',
-        //         wordWrap: false, // FIXME: mesh.getBounds() returns an empty AABB
-        //         isBillboard: true,
-        //       }
-        //     : undefined,
+        labelShape: {
+          text: innerModel.data.label,
+          fontSize: 20,
+          lod: -1,
+          fill: 'rgba(255,255,255,0.85)',
+          wordWrap: false, // FIXME: mesh.getBounds() returns an empty AABB
+          isBillboard: true,
+        },
       },
     };
   },

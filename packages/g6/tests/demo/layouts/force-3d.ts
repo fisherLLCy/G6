@@ -4,7 +4,14 @@ import { TestCaseContext } from '../interface';
 
 export default (context: TestCaseContext) => {
   const { width, height } = context;
-  const graph = new G6.Graph({
+
+  const ExtGraph = G6.extend(G6.Graph, {
+    nodes: {
+      'sphere-node': G6.Extensions.SphereNode,
+    },
+  });
+
+  const graph = new ExtGraph({
     ...context,
     type: 'graph',
     renderer: 'webgl-3d',
@@ -34,7 +41,6 @@ export default (context: TestCaseContext) => {
     node: {
       type: 'sphere-node',
       keyShape: {
-        opacity: 0.6,
         r: 10,
       },
       labelShape: {
